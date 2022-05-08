@@ -12,10 +12,18 @@ import java.lang.Exception
 
 class MovieViewModel(private val repo: MovieRepository) : ViewModel() {
 
-    fun fetchUpcomingMovies() = liveData(Dispatchers.IO) {
+    fun fetchMainScreenMovies() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(Resource.Success(repo.getUpcomingMovies()))
+            emit(
+                Resource.Success(
+                    Triple(
+                        repo.getPopularMovies(),
+                        repo.getTopRatedMovies(),
+                        repo.getUpcomingMovies()
+                    )
+                )
+            )
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
