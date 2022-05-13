@@ -11,7 +11,7 @@
         android:label="fragment_movie"
         tools:layout="@layout/fragment_movie" >
         <action
-            android:id="@+id/action_movieFragment_to_movieDetailFragment2"
+            android:id="@+id/action_movieFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
     </fragment>
     <fragment
@@ -28,9 +28,6 @@
         <argument
             android:name="voteAverage"
             app:argType="float" />
-        <argument
-            android:name="voteCount"
-            app:argType="integer" />
         <argument
             android:name="overview"
             app:argType="string" />
